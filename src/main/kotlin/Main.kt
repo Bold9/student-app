@@ -27,7 +27,11 @@ fun mainMenu() : Int {
          > |   1) Add a student                |
          > |   2) List all student            |
          > |   3) Update a student             |
-         > |   4) Delete a student             |
+         > |   4) Delete a student 
+         >     5) search by course name 
+         >     6) list all students in SSD
+         >     7) list student By CAO points
+         >     8) search by ID
          > ----------------------------------
          > |   0) Exit                      |
          > ----------------------------------
@@ -42,10 +46,10 @@ fun runMenu() {
             2 -> liststudent()
             3 -> updatestudent()
             4 -> deletestudent()
-            5 -> listActivestudent()
-            6 -> listArchivedstudent()
-            7 -> numberOfArchivedstudent()
-            8 -> numberOfActivestudent()
+            5 -> liststudentBycourse()
+            6 -> liststudentinSSD()
+            7 -> liststudentByCAOpoints()
+            8 -> liststudentById()
             0 -> exitApp()
             else -> System.out.println("Invalid option entered: ${option}")
 
@@ -55,10 +59,13 @@ fun runMenu() {
 }
 
 
-fun addstudent(){
+fun addstudent() {
     //logger.info { "addstudent() function invoked" }
     val studentTitle = readNextLine("Enter a Name for the student: ")
-    val sID = readNextInt("Enter an ID: ")
+    var sID=0
+    do{
+         sID = readNextInt("Enter an ID between 1000 and 9999: ")
+}while (!utils.Helper.validateNumber(sID, 1000, 9999))
     val cName = readNextLine("Enter a course for the student: ")
     val sCAO = readNextInt("Enter CAO points: ")
     val sGrade = readNextDouble("Enter average grade")
@@ -110,26 +117,28 @@ fun deletestudent(){
 }
 
 fun exitApp(){
-    println("Exiting...bye")
+    println("Exiting...come back soon")
     exit(0)
 }
 
-fun listActivestudent() {
-    //studentAPI.listActivestudent()
+fun liststudentBycourse(){
+    var coursename= readNextLine("Enter the course you are looking for")
+    println (studentAPI.listStudentByCourse(coursename))
 }
 
-fun listArchivedstudent() {
-    //studentAPI.listArchivedstudent()
+fun liststudentinSSD(){
+    //var ssd= readNextLine("List ")
+    println (studentAPI.liststudentinSSD("SSD"))
 }
 
-fun numberOfArchivedstudent() {
-    //helper method to determine how many archived notes there are
-    // studentAPI.numberOfArchivedstudent()
+fun liststudentByCAOpoints(){
+    val studentCAOpoints= readNextInt("Enter the points you are looking for")
+    println (studentAPI.liststudentByCAOpoints(studentCAOpoints))
 }
 
-fun numberOfActivestudent() {
-    //helper method to determine how many active notes there are
-    //studentAPI.numberOfActivestudent()
+fun liststudentById(){
+    val studentId= readNextInt("Enter the ID you are looking for")
+    println (studentAPI.liststudentById(studentId))
 }
 
 
