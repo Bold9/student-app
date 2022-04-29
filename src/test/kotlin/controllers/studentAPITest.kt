@@ -91,14 +91,14 @@ class StudentAPITest {
             assertTrue(studentString.contains("sportStudent"))
         }
     }
-}
+
 
 /*
     @Nested
     inner class Updatestudent {
         @Test
         fun `adding a student to a populated list adds to ArrayList`() {
-            val newStudent = Student("Study Lambdas", 1, "College", 45"")
+            val newStudent = Student("Study Lambdas", 1, "College", 45,70.1)
             assertEquals(5, populatedstudent!!.numberOfstudent())
             assertTrue(populatedstudent!!.add(newStudent))
             assertEquals(6, populatedstudent!!.numberOfstudent())
@@ -107,7 +107,7 @@ class StudentAPITest {
 
         @Test
         fun `adding a student to an empty list adds to ArrayList`() {
-            val newStudent = Student("Study Lambdas", 1, "College", 45"")
+            val newStudent = Student("Study Lambdas", 1, "College", 45,70.0)
             assertEquals(0, emptystudent!!.numberOfstudent())
             assertTrue(emptystudent!!.add(newStudent))
             assertEquals(1, emptystudent!!.numberOfstudent())
@@ -199,7 +199,7 @@ class StudentAPITest {
         }
     }*/
 
-/*
+
     @Nested
     inner class Deletestudent {
 
@@ -211,14 +211,14 @@ class StudentAPITest {
         }
 
         @Test
-        fun `deleting a note that exists delete and returns deleted object`() {
+        fun `deleting a student that exists delete and returns deleted object`() {
             assertEquals(5, populatedstudent!!.numberOfstudent())
-            assertEquals(swim, populatedstudent!!.deletestudent(4))
+            assertEquals(summerStudent, populatedstudent!!.deletestudent(4))
             assertEquals(4, populatedstudent!!.numberOfstudent())
-            assertEquals(learnKotlin, populatedstudent!!.deletestudent(0))
+            assertEquals(mathStudent, populatedstudent!!.deletestudent(0))
             assertEquals(3, populatedstudent!!.numberOfstudent())
         }
     }
 }
-*/
+
 
