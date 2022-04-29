@@ -93,12 +93,12 @@ class StudentAPITest {
     }
 
 
-/*
+
     @Nested
     inner class Updatestudent {
         @Test
         fun `adding a student to a populated list adds to ArrayList`() {
-            val newStudent = Student("Study Lambdas", 1, "College", 45,70.1)
+            val newStudent = Student("blessing", 1500, "Engineering", 45,70.1)
             assertEquals(5, populatedstudent!!.numberOfstudent())
             assertTrue(populatedstudent!!.add(newStudent))
             assertEquals(6, populatedstudent!!.numberOfstudent())
@@ -107,13 +107,13 @@ class StudentAPITest {
 
         @Test
         fun `adding a student to an empty list adds to ArrayList`() {
-            val newStudent = Student("Study Lambdas", 1, "College", 45,70.0)
+            val newStudent = Student("blessing", 1500, "Engineering", 45,70.1)
             assertEquals(0, emptystudent!!.numberOfstudent())
             assertTrue(emptystudent!!.add(newStudent))
             assertEquals(1, emptystudent!!.numberOfstudent())
             assertEquals(newStudent, emptystudent!!.findstudent(emptystudent!!.numberOfstudent() - 1))
         }
-    }*/
+    }
 /*
     @Nested
     inner class listActivestudent {
