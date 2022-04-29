@@ -50,19 +50,58 @@ class StudentAPI {
         return (index >= 0 && index < list.size)
     }
 
-
-    /*  fun listActivestudent(): String {
+      fun listStudentByCourse(cName:String): String {
           return if (students.isEmpty()) {
               "No student stored"
           } else {
               var listOfstudent = ""
               for (i in students.indices) {
-                  if (!students[i].isstudentArchived)
-                  listOfstudent += "${i}: ${student[i]} \n"
+                  if (students[i].courseName.equals(cName))
+                  listOfstudent += "${i}: ${students[i]} \n"
               }
               listOfstudent
           }
-      }*/
+      }
+
+        fun liststudentByCAOpoints(points:Int): String{
+
+            return if (students.isEmpty()) {
+                "No points stored"
+            } else {
+                var listOfstudent = ""
+                for (i in students.indices) {
+                    if (students[i].studentCAOpoints>points)
+                        listOfstudent += "${i}: ${students[i]} \n"
+                }
+                listOfstudent
+            }
+       }
+
+    fun liststudentinSSD(cName:String): String {
+        return if (students.isEmpty()) {
+            "No student in SSD"
+        } else {
+            var listOfstudent = ""
+            for (i in students.indices) {
+                if (students[i].courseName.equals(cName))
+                    listOfstudent += "${i}: ${students[i]} \n"
+            }
+            listOfstudent
+        }
+    }
+
+    fun liststudentById(sID:Int): String {
+        return if (students.isEmpty()) {
+            "No ID stored"
+        } else {
+            var listOfstudent = ""
+            for (i in students.indices) {
+                if (students[i].studentId.equals(sID))
+                    listOfstudent += "${i}: ${students[i]} \n"
+            }
+            listOfstudent
+        }
+    }
 
     /*  fun listArchivedstudent(): String {
           return if (numberOfArchivedstudent() == 0) {

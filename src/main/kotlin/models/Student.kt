@@ -6,4 +6,5 @@ data class Student(var studentName: String,
                    val studentCAOpoints: Int,
                    val averageGrade: Double){
 
+
 }

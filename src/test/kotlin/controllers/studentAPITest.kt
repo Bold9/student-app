@@ -15,37 +15,37 @@ import kotlin.test.assertNull
 
 class StudentAPITest {
 
-    private var learnKotlin: StudentAPI? = null
-    private var summerHoliday: StudentAPI? = null
-    private var codeApp: StudentAPI? = null
-    private var testApp: StudentAPI? = null
-    private var swim: StudentAPI? = null
+    private var bscStudent: Student? = null
+    private var summerStudent: Student? = null
+    private var lawStudent: Student? = null
+    private var mathStudent: Student? = null
+    private var sportStudent: Student? = null
     private var populatedstudent: StudentAPI? = StudentAPI()
     private var emptystudent: StudentAPI? = StudentAPI()
 
     @BeforeEach
     fun setup() {
-        learnKotlin = StudentAPI("Learning Kotlin", 5, "College", false)
-        summerHoliday = StudentAPI("Summer Holiday to France", 1, "Holiday", false)
-        codeApp = StudentAPI("Code App", 4, "Work", true)
-        testApp = StudentAPI("Test App", 4, "Work", false)
-        swim = StudentAPI("Swim - Pool", 3, "Hobby", true)
+        bscStudent = Student("John", 8909, "Bsc Applied", 99, 6.0)
+        summerStudent = Student("Bold", 4509, "Programming", 89, 8.0)
+        lawStudent = Student("Ozioma", 7960, "Social studies", 78, 5.0)
+        mathStudent = Student("Chidera", 6754, "Mathematics", 80, 7.0)
+        sportStudent = Student("Tboy", 3000, "Sports & Recreation", 69, 6.0)
 
         //adding 5 student to the student api
-        populatedstudent!!.add(learnKotlin!!)
-        populatedstudent!!.add(summerHoliday!!)
-        populatedstudent!!.add(codeApp!!)
-        populatedstudent!!.add(testApp!!)
-        populatedstudent!!.add(swim!!)
+        populatedstudent!!.add(bscStudent!!)
+        populatedstudent!!.add(summerStudent!!)
+        populatedstudent!!.add(lawStudent!!)
+        populatedstudent!!.add(mathStudent!!)
+        populatedstudent!!.add(sportStudent!!)
     }
 
     @AfterEach
     fun tearDown() {
-        learnKotlin = null
-        summerHoliday = null
-        codeApp = null
-        testApp = null
-        swim = null
+        bscStudent = null
+        summerStudent = null
+        lawStudent = null
+        mathStudent = null
+        sportStudent = null
         populatedstudent = null
         emptystudent = null
     }
@@ -54,18 +54,18 @@ class StudentAPITest {
     inner class Addstudent {
         @Test
         fun `adding a student to a populated list adds to ArrayList`() {
-            val newstudent = Student("Study Lambdas", 1, "College", 44"")
+            val newstudent = Student("Strong", 1000, "Architecture", 44, 6.0)
             assertEquals(5, populatedstudent!!.numberOfstudent())
-            assertTrue(populatedstudent!!.add(newstudent))
+            populatedstudent!!.add(newstudent)
             assertEquals(6, populatedstudent!!.numberOfstudent())
             assertEquals(newstudent, populatedstudent!!.findstudent(populatedstudent!!.numberOfstudent() - 1))
         }
 
         @Test
         fun `adding a student to an empty list adds to ArrayList`() {
-            val newstudent = Student("Study Lambdas", 1, "College", 44 "")
+            val newstudent = Student("Strong", 1000, "Architecture", 44, 6.0)
             assertEquals(0, emptystudent!!.numberOfstudent())
-            assertTrue(emptystudent!!.add(newstudent))
+            (emptystudent!!.add(newstudent))
             assertEquals(1, emptystudent!!.numberOfstudent())
             assertEquals(newstudent, emptystudent!!.findstudent(emptystudent!!.numberOfstudent() - 1))
         }
@@ -84,16 +84,16 @@ class StudentAPITest {
         fun `listAllstudent returns student when ArrayList has notes stored`() {
             assertEquals(5, populatedstudent!!.numberOfstudent())
             val studentString = populatedstudent!!.listAllstudent().lowercase()
-            assertTrue(studentString.contains("learning kotlin"))
-            assertTrue(studentString.contains("code app"))
-            assertTrue(studentString.contains("test app"))
-            assertTrue(studentString.contains("swim"))
-            assertTrue(studentString.contains("summer holiday"))
+            assertTrue(studentString.contains("bscStudent"))
+            assertTrue(studentString.contains("summerStudent"))
+            assertTrue(studentString.contains("lawStudent"))
+            assertTrue(studentString.contains("mathStudent"))
+            assertTrue(studentString.contains("sportStudent"))
         }
     }
+}
 
-
-
+/*
     @Nested
     inner class Updatestudent {
         @Test
@@ -113,7 +113,7 @@ class StudentAPITest {
             assertEquals(1, emptystudent!!.numberOfstudent())
             assertEquals(newStudent, emptystudent!!.findstudent(emptystudent!!.numberOfstudent() - 1))
         }
-    }
+    }*/
 /*
     @Nested
     inner class listActivestudent {
@@ -199,6 +199,7 @@ class StudentAPITest {
         }
     }*/
 
+/*
     @Nested
     inner class Deletestudent {
 
@@ -219,4 +220,5 @@ class StudentAPITest {
         }
     }
 }
+*/
 
