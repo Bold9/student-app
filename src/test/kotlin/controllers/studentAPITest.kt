@@ -92,8 +92,6 @@ class StudentAPITest {
         }
     }
 
-
-
     @Nested
     inner class Updatestudent {
         @Test
@@ -199,6 +197,26 @@ class StudentAPITest {
         }
     }*/
 
+    @Nested
+    inner class UpdatestudentCAOpoints{
+        @Test
+        fun `adding a studentCAOpoints to a populated list adds to ArrayList`() {
+            val newStudent = Student("Michelle", 5000, "Business and Law", 45,50.1)
+            assertEquals(5, populatedstudent!!.numberOfstudent())
+            assertTrue(populatedstudent!!.add(newStudent))
+            assertEquals(6, populatedstudent!!.numberOfstudent())
+            assertEquals(newStudent, populatedstudent!!.findstudent(populatedstudent!!.numberOfstudent() - 1))
+        }
+
+        @Test
+        fun `adding a studentCAOpoints to an empty list adds to ArrayList`() {
+            val newStudent = Student("Michelle", 5000, "Business and Law", 45,50.1)
+            assertEquals(0, emptystudent!!.numberOfstudent())
+            assertTrue(emptystudent!!.add(newStudent))
+            assertEquals(1, emptystudent!!.numberOfstudent())
+            assertEquals(newStudent, emptystudent!!.findstudent(emptystudent!!.numberOfstudent() - 1))
+        }
+    }
 
     @Nested
     inner class Deletestudent {

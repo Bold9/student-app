@@ -26,12 +26,14 @@ fun mainMenu() : Int {
          > | STUDENT MENU                      |
          > |   1) Add a student                |
          > |   2) List all student            |
-         > |   3) Update a student             |
+         > |   3) Update a student Name             |
          > |   4) Delete a student 
          >     5) search by course name 
          >     6) list all students in SSD
          >     7) list student By CAO points
          >     8) search by ID
+         >     9) Update a student Course
+         >     10) Update student CAO points
          > ----------------------------------
          > |   0) Exit                      |
          > ----------------------------------
@@ -50,6 +52,8 @@ fun runMenu() {
             6 -> liststudentinSSD()
             7 -> liststudentByCAOpoints()
             8 -> liststudentById()
+            9 -> UpdatestudentCourse()
+            10 -> updatestudentCAOpoints()
             0 -> exitApp()
             else -> System.out.println("Invalid option entered: ${option}")
 
@@ -140,5 +144,26 @@ fun liststudentById(){
     val studentId= readNextInt("Enter the ID you are looking for")
     println (studentAPI.liststudentById(studentId))
 }
+
+fun UpdatestudentCourse() {
+    liststudent()
+    if (studentAPI.numberOfstudent() > 0) {
+        //only ask the user to choose the student to delete if student exist
+        val indexupdate = readNextInt("Enter the index of the student to update: ")
+        val courseName = readNextLine("Enter the course name: ")
+        studentAPI.UpdatestudentCourse(indexupdate, courseName)
+    }
+}
+
+    fun updatestudentCAOpoints() {
+        liststudent()
+        if (studentAPI.numberOfstudent() > 200) {
+            //only ask the user to choose the studentCAO points to delete if student exist
+            val indexupdate = readNextInt("Enter the index of the studentCAO points to update: ")
+            val StudentCAOpoints = readNextInt("Enter the CAO points: ")
+            studentAPI.UpdatestudentCAOpoints(indexupdate, StudentCAOpoints)
+        }
+    }
+
 
 

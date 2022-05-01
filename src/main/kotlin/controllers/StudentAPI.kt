@@ -30,9 +30,9 @@ class StudentAPI {
         return students.size
     }
 
-    fun updateStudent(indexToUpdate: Int, newName:String):Boolean {
+    fun updateStudent(indexToUpdate: Int, newName: String): Boolean {
         if (isValidListIndex(indexToUpdate, students)) {
-            students[indexToUpdate].studentName=newName
+            students[indexToUpdate].studentName = newName
             return true
         }
         return false
@@ -50,34 +50,34 @@ class StudentAPI {
         return (index >= 0 && index < list.size)
     }
 
-      fun listStudentByCourse(cName:String): String {
-          return if (students.isEmpty()) {
-              "No student stored"
-          } else {
-              var listOfstudent = ""
-              for (i in students.indices) {
-                  if (students[i].courseName.equals(cName))
-                  listOfstudent += "${i}: ${students[i]} \n"
-              }
-              listOfstudent
-          }
-      }
-
-        fun liststudentByCAOpoints(points:Int): String{
-
-            return if (students.isEmpty()) {
-                "No points stored"
-            } else {
-                var listOfstudent = ""
-                for (i in students.indices) {
-                    if (students[i].studentCAOpoints>points)
-                        listOfstudent += "${i}: ${students[i]} \n"
-                }
-                listOfstudent
+    fun listStudentByCourse(cName: String): String {
+        return if (students.isEmpty()) {
+            "No student stored"
+        } else {
+            var listOfstudent = ""
+            for (i in students.indices) {
+                if (students[i].courseName.equals(cName))
+                    listOfstudent += "${i}: ${students[i]} \n"
             }
-       }
+            listOfstudent
+        }
+    }
 
-    fun liststudentinSSD(cName:String): String {
+    fun liststudentByCAOpoints(points: Int): String {
+
+        return if (students.isEmpty()) {
+            "No points stored"
+        } else {
+            var listOfstudent = ""
+            for (i in students.indices) {
+                if (students[i].studentCAOpoints > points)
+                    listOfstudent += "${i}: ${students[i]} \n"
+            }
+            listOfstudent
+        }
+    }
+
+    fun liststudentinSSD(cName: String): String {
         return if (students.isEmpty()) {
             "No student in SSD"
         } else {
@@ -90,7 +90,7 @@ class StudentAPI {
         }
     }
 
-    fun liststudentById(sID:Int): String {
+    fun liststudentById(sID: Int): String {
         return if (students.isEmpty()) {
             "No ID stored"
         } else {
@@ -128,7 +128,6 @@ class StudentAPI {
        }*/
 
 
-
 //    fun numberOfArchivedstudent(): Int {
 //        var counter = 0
 //        for (student in student) {
@@ -143,6 +142,18 @@ class StudentAPI {
         return if (isValidListIndex(indexToDelete, students)) {
             students.removeAt(indexToDelete)
         } else null
+    }
+
+    fun UpdatestudentCourse(indexToUpdate: Int, cName: String) {
+        if (isValidListIndex(indexToUpdate, students)) {
+            students[indexToUpdate].courseName = cName
+        }
+    }
+
+    fun UpdatestudentCAOpoints(indexToUpdate: Int, sCAO: Int) {
+        if (isValidListIndex(indexToUpdate, students)) {
+            students[indexToUpdate].studentCAOpoints = sCAO
+        }
     }
 }
 
