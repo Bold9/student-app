@@ -237,6 +237,27 @@ class StudentAPITest {
             assertEquals(3, populatedstudent!!.numberOfstudent())
         }
     }
+
+
+    @Nested
+    inner class DeletestudentId {
+
+        @Test
+        fun `deleting a student that does not exist, returns null`() {
+            assertNull(emptystudent!!.deletestudent(0))
+            assertNull(populatedstudent!!.deletestudent(-1))
+            assertNull(populatedstudent!!.deletestudent(5))
+        }
+
+        @Test
+        fun `deleting a student that exists delete and returns deleted object`() {
+            assertEquals(5, populatedstudent!!.numberOfstudent())
+            assertEquals(summerStudent, populatedstudent!!.deletestudent(4))
+            assertEquals(4, populatedstudent!!.numberOfstudent())
+            assertEquals(mathStudent, populatedstudent!!.deletestudent(0))
+            assertEquals(3, populatedstudent!!.numberOfstudent())
+        }
+    }
 }
 
 

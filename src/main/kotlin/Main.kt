@@ -34,6 +34,7 @@ fun mainMenu() : Int {
          >     8) search by ID
          >     9) Update a student Course
          >     10) Update student CAO points
+         >     11) Delete student ID
          > ----------------------------------
          > |   0) Exit                      |
          > ----------------------------------
@@ -54,6 +55,7 @@ fun runMenu() {
             8 -> liststudentById()
             9 -> UpdatestudentCourse()
             10 -> updatestudentCAOpoints()
+            11 -> deletestudentId()
             0 -> exitApp()
             else -> System.out.println("Invalid option entered: ${option}")
 
@@ -164,6 +166,23 @@ fun UpdatestudentCourse() {
             studentAPI.UpdatestudentCAOpoints(indexupdate, StudentCAOpoints)
         }
     }
+
+fun deletestudentId() {
+    liststudent()
+    if (studentAPI.numberOfstudent() > 0) {
+        //only ask the user to choose the student to delete if student exist
+        val indexToDelete = readNextInt("Enter the index of the student to delete: ")
+        //pass the index of the student to studentAPI for deleting and check for success.
+        val studentToDelete = studentAPI.deletestudent(indexToDelete)
+        val studentId = Int
+        studentAPI.deletestudentId(indexToDelete, studentId)
+        if (studentToDelete != null) {
+            println("Delete Successful! Deleted studentId: ${studentToDelete.studentId}")
+        } else {
+            println("Delete studentId Successful")
+        }
+    }
+}
 
 
 

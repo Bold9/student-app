@@ -1,7 +1,6 @@
 import models.Student
 
 
-
 // deleting and updating or executing
 
 class StudentAPI {
@@ -155,6 +154,14 @@ class StudentAPI {
             students[indexToUpdate].studentCAOpoints = sCAO
         }
     }
+
+    fun deletestudentId(indexToDelete: Int, studentId: Any?): Student? {
+        return if (isValidListIndex(indexToDelete, students)) {
+            students.removeAt(indexToDelete)
+        } else null
+
+    }
+
 }
 
 
